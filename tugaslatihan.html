@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Siswa</title>
+    <style>
+        body {
+            background-color: #FFD6E7;
+            font-family: Arial;
+        }
+
+        .judul {
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+            margin: 20px 120px;
+            padding-bottom: 5px;
+        }
+
+        .subjudul {
+            text-align: center;
+            font-size: 16px;
+            margin-bottom: 25px;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            margin-left: 40px;
+        }
+
+        .label {
+            width: 150px;
+        }
+
+        .colon {
+            width: 15px;
+            text-align: center;
+        }
+
+        input, select, textarea {
+            flex: 1;
+        }
+
+        .output-box {
+            background: white;
+            border: 1px solid black;
+            padding: 4px 6px;
+            width: 250px;
+            min-height: 22px;
+        }
+
+        textarea.output-text {
+            background: white;
+            border: 1px solid black;
+            font-family: Arial;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="judul">Data Siswa</div>
+<div class="subjudul">Sekolah Menengah Kejuruan</div>
+
+<!-- FORM -->
+<div class="form-area">
+
+    <div class="row">
+        <div class="label">Nama Siswa</div>
+        <div class="colon">:</div>
+        <input type="text" id="nama">
+    </div>
+
+    <div class="row">
+        <div class="label">NIS</div>
+        <div class="colon">:</div>
+        <input type="text" id="nis">
+    </div>
+
+    <div class="row">
+        <div class="label">Jenis Kelamin</div>
+        <div class="colon">:</div>
+        <select id="jk">
+            <option>Laki-laki</option>
+            <option>Perempuan</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="label">Agama</div>
+        <div class="colon">:</div>
+        <select id="agama">
+            <option>Islam</option>
+            <option>Kristen</option>
+            <option>Hindu</option>
+            <option>Budha</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="label">Status</div>
+        <div class="colon">:</div>
+        <select id="status">
+            <option>Aktif</option>
+            <option>Tidak Aktif</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="label">Jurusan</div>
+        <div class="colon">:</div>
+        <select id="jurusan">
+            <option>RPL</option>
+            <option>TKJ</option>
+            <option>Multimedia</option>
+        </select>
+    </div>
+
+    <div class="row" style="align-items:flex-start;">
+        <div class="label">Komentar</div>
+        <div class="colon">:</div>
+        <textarea id="komentar" cols="35" rows="4"></textarea>
+    </div>
+
+</div>
+
+<!-- BUTTONS -->
+<div class="row">
+    <button onclick="tampil()">Kirim</button>
+    <button onclick="ulang()">Ulang</button>
+</div>
+
+<!-- OUTPUT -->
+<div id="outputBox" style="margin-left:40px; margin-top:30px;"></div>
+
+<script>
+function tampil() {
+    let nama = document.getElementById("nama").value;
+    let nis = document.getElementById("nis").value;
+    let jk = document.getElementById("jk").value;
+    let agama = document.getElementById("agama").value;
+    let status = document.getElementById("status").value;
+    let jurusan = document.getElementById("jurusan").value;
+    let komentar = document.getElementById("komentar").value;
+
+    document.getElementById("outputBox").innerHTML = `
+        <div class="judul">Output Data Siswa</div><br>
+
+        <div class="row">
+            <div class="label">Nama Siswa</div>
+            <div class="colon">:</div>
+            <div class="output-box">${nama}</div>
+        </div>
+
+        <div class="row">
+            <div class="label">NIS</div>
+            <div class="colon">:</div>
+            <div class="output-box">${nis}</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Jenis Kelamin</div>
+            <div class="colon">:</div>
+            <div class="output-box">${jk}</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Agama</div>
+            <div class="colon">:</div>
+            <div class="output-box">${agama}</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Status</div>
+            <div class="colon">:</div>
+            <div class="output-box">${status}</div>
+        </div>
+
+        <div class="row">
+            <div class="label">Jurusan</div>
+            <div class="colon">:</div>
+            <div class="output-box">${jurusan}</div>
+        </div>
+
+        <div class="row" style="align-items:flex-start;">
+            <div class="label">Komentar</div>
+            <div class="colon">:</div>
+            <textarea class="output-text" cols="35" rows="4">${komentar}</textarea>
+        </div>
+    `;
+}
+
+function ulang() {
+    document.getElementById("nama").value = "";
+    document.getElementById("nis").value = "";
+    document.getElementById("komentar").value = "";
+    document.getElementById("outputBox").innerHTML = "";
+}
+</script>
+
+</body>
+</html>
