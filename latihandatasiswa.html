@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Data Siswa</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #FFEFF6; /* Pink soft background */
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        width: 60%;
+        margin: 40px auto;
+        background: white;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0,0,0,0.15);
+        border: 1px solid #F4C7D8;
+    }
+
+    .header {
+        background: #FF9BBE; /* Pink tua lembut */
+        color: white;
+        text-align: center;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    h3 {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        color: #444;
+    }
+
+    .row {
+        display: flex;
+        margin-bottom: 12px;
+        align-items: center;
+    }
+
+    .label {
+        width: 150px;
+        font-weight: bold;
+        color: #555;
+    }
+
+    input, select {
+        flex: 1;
+        padding: 8px;
+        border-radius: 8px;
+        border: 1px solid #DFA8B9;
+    }
+
+    button {
+        padding: 8px 20px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        color: white;
+        margin-right: 10px;
+        font-weight: bold;
+    }
+
+    .kirim {
+        background: #FF7BA3;
+    }
+
+    .ulang {
+        background: #777;
+    }
+
+    .output-box {
+        width: 100%;
+        background: #FFF5F9; /* pink pucat */
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #F4C7D8;
+        margin-bottom: 10px;
+        min-height: 20px;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        DATA SISWA <br>
+        SMK AL-GHIFARI BANYURESMI
+    </div>
+
+    <h3>Input Data</h3>
+
+<div class="row">
+        <div class="label">Nama</div>
+        <input type="text" id="nama" placeholder="Masukkan Nama Lengkap">
+    </div>
+
+    <div class="row">
+        <div class="label">NISN</div>
+        <input type="text" id="nisn" placeholder="Masukkan NISN">
+    </div>
+
+    <div class="row">
+        <div class="label">Jurusan</div>
+        <select id="jurusan">
+            <option>RPL</option>
+            <option>TBSM</option>
+            <option>Tkr</option>
+            <option>Fkk</option>
+        </select>
+    </div>
+
+    <div class="row">
+        <div class="label">Agama</div>
+        <select id="agama">
+            <option>Islam</option>
+            <option>Kristen</option>
+            <option>Hindu</option>
+            <option>Budha</option>
+            <option>Konghucu</option>
+        </select>
+    </div>
+
+    <div class="row" style="margin-top: 15px;">
+        <button class="kirim" onclick="kirim()">KIRIM</button>
+        <button class="ulang" onclick="ulang()">ULANG</button>
+    </div>
+
+    <h3>Output Data</h3>
+
+<div class="row">
+        <div class="label">Nama Anda</div>
+        <div id="outNama" class="output-box"></div>
+    </div>
+
+    <div class="row">
+        <div class="label">NISN Anda</div>
+        <div id="outNisn" class="output-box"></div>
+    </div>
+
+    <div class="row">
+        <div class="label">Jurusan</div>
+        <div id="outJurusan" class="output-box"></div>
+    </div>
+
+    <div class="row">
+        <div class="label">Agama</div>
+        <div id="outAgama" class="output-box"></div>
+    </div>
+
+</div>
+
+
+<script>
+function kirim() {
+    let nama = document.getElementById("nama").value;
+    let nisn = document.getElementById("nisn").value;
+    let jurusan = document.getElementById("jurusan").value;
+    let agama = document.getElementById("agama").value;
+ document.getElementById("outNama").innerText = nama;
+    document.getElementById("outNisn").innerText = nisn;
+    document.getElementById("outJurusan").innerText = jurusan;
+    document.getElementById("outAgama").innerText = agama;
+}
+
+function ulang() {
+    document.getElementById("nama").value = "";
+    document.getElementById("nisn").value = "";
+    document.getElementById("jurusan").selectedIndex = 0;
+    document.getElementById("agama").selectedIndex = 0;
+
+    document.getElementById("outNisn").innerText = "";
+    document.getElementById("outNama").innerText = "";
+    document.getElementById("outJurusan").innerText = "";
+    document.getElementById("outAgama").innerText = "";
+}
+</script>
+
+</body>
+</html>
